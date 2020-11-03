@@ -1,9 +1,12 @@
 package com.atguigu.edu.controller;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.atguigu.edu.entity.Teacher;
+import com.atguigu.edu.service.TeacherService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
 
 /**
  * <p>
@@ -14,8 +17,24 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2020-11-02
  */
 @RestController
-@RequestMapping("/edu/teacher")
+@RequestMapping(value = "/eduservice/teacher",produces = "application/json; charset=utf-8")
 public class TeacherController {
+
+    @Autowired
+    private TeacherService teacherService;
+
+    //查询讲师表所有数据
+    @GetMapping("findAll")
+    public List<Teacher> findAllTeacher(){
+        return teacherService.list(null);
+    }
+
+    //逻辑删除
+    @DeleteMapping("{id}")
+    public boolean removeTeacher(@PathVariable String id){
+        return teacherService.removeById(id);
+    }
+
 
 }
 

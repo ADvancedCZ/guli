@@ -2,6 +2,7 @@ package com.atguigu.edu.service;
 
 import com.atguigu.edu.entity.Teacher;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  * <p>
@@ -11,6 +12,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author testjava
  * @since 2020-11-02
  */
+
 public interface TeacherService extends IService<Teacher> {
 
 }
